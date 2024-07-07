@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://degvs6xjqyk8m"
+path="res://.godot/imported/rod1_map_bushes_full.obj-6948f94a75242df0d5b08ca50051a277.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rod1_map_bushes_full.obj-6948f94a75242df0d5b08ca50051a277.mesh"]
+
+source_file="res://gamefiles/models/map/rod1_map_bushes_full.obj"
+dest_files=["res://.godot/imported/rod1_map_bushes_full.obj-6948f94a75242df0d5b08ca50051a277.mesh", "res://.godot/imported/rod1_map_bushes_full.obj-6948f94a75242df0d5b08ca50051a277.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

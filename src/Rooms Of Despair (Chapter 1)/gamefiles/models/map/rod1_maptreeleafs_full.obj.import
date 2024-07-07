@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bo4n4vv1ijssl"
+path="res://.godot/imported/rod1_maptreeleafs_full.obj-46683a0cff14d38e3249f4fa79bb076e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rod1_maptreeleafs_full.obj-46683a0cff14d38e3249f4fa79bb076e.mesh"]
+
+source_file="res://gamefiles/models/map/rod1_maptreeleafs_full.obj"
+dest_files=["res://.godot/imported/rod1_maptreeleafs_full.obj-46683a0cff14d38e3249f4fa79bb076e.mesh", "res://.godot/imported/rod1_maptreeleafs_full.obj-46683a0cff14d38e3249f4fa79bb076e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

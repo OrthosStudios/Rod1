@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://b24ieqg8q2f1r"]
+
+[ext_resource type="Texture2D" uid="uid://dflbogeo4fuuk" path="res://icon.svg" id="1_6gysl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ingo"]
+size = Vector2(128, 128)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="walkButton" type="TouchScreenButton" parent="."]
+position = Vector2(113, 385)
+texture_normal = ExtResource("1_6gysl")
+shape = SubResource("RectangleShape2D_7ingo")
+action = "moveForward"
+
+[node name="torchButton" type="TouchScreenButton" parent="."]
+position = Vector2(400, 384)
+texture_normal = ExtResource("1_6gysl")
+shape = SubResource("RectangleShape2D_7ingo")
+action = "toggleTorch"

@@ -1,0 +1,138 @@
+[gd_scene load_steps=28 format=3 uid="uid://dyuh64d2im10l"]
+
+[ext_resource type="Texture2D" uid="uid://75mo0ls4gc43" path="res://gamefiles/textures/objects/dirt.png" id="2_j1mhd"]
+[ext_resource type="Texture2D" uid="uid://8r0l5o7ok435" path="res://gamefiles/textures/objects/table_texture.png" id="3_600fu"]
+[ext_resource type="ArrayMesh" uid="uid://3sbv4eyytpis" path="res://gamefiles/models/table/rod1_table.obj" id="3_qwyvp"]
+[ext_resource type="Texture2D" uid="uid://xxaq8w4gtysh" path="res://gamefiles/models/table/texture.png" id="4_r7mgl"]
+[ext_resource type="Texture2D" uid="uid://d2djmvc7x60n6" path="res://gamefiles/models/table/texture2.png" id="5_g75s4"]
+[ext_resource type="ArrayOccluder3D" uid="uid://oricgqm84bca" path="res://gamefiles/optimizations/world_table.occ" id="6_8oflx"]
+[ext_resource type="Texture2D" uid="uid://cxyoc671chld4" path="res://gamefiles/textures/objects/news.png" id="7_b1a42"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8x8e"]
+shading_mode = 0
+albedo_texture = ExtResource("2_j1mhd")
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qxg50"]
+material = SubResource("StandardMaterial3D_a8x8e")
+size = Vector2(4096, 4096)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_d747o"]
+data = PackedVector3Array(2048, 0, 2048, -2048, 0, 2048, 2048, 0, -2048, -2048, 0, 2048, -2048, 0, -2048, 2048, 0, -2048)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3x8x"]
+shading_mode = 0
+albedo_texture = ExtResource("3_600fu")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fn3xs"]
+shading_mode = 0
+albedo_texture = ExtResource("3_600fu")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tpd7e"]
+shading_mode = 0
+albedo_texture = ExtResource("3_600fu")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmmoo"]
+shading_mode = 0
+albedo_texture = ExtResource("3_600fu")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxdxm"]
+shading_mode = 0
+albedo_texture = ExtResource("3_600fu")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qfuvk"]
+albedo_texture = ExtResource("3_600fu")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jygd"]
+shading_mode = 0
+albedo_texture = ExtResource("3_600fu")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evckq"]
+shading_mode = 0
+albedo_texture = ExtResource("3_600fu")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32y1t"]
+shading_mode = 0
+albedo_texture = ExtResource("3_600fu")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7deox"]
+shading_mode = 0
+albedo_texture = ExtResource("3_600fu")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_olvfm"]
+shading_mode = 0
+albedo_texture = ExtResource("3_600fu")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wlotb"]
+shading_mode = 0
+albedo_texture = ExtResource("4_r7mgl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2y05w"]
+shading_mode = 0
+albedo_texture = ExtResource("4_r7mgl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0p80v"]
+shading_mode = 0
+albedo_texture = ExtResource("5_g75s4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2hpc"]
+shading_mode = 0
+albedo_texture = ExtResource("4_r7mgl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nel64"]
+shading_mode = 0
+albedo_texture = ExtResource("7_b1a42")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yrf38"]
+material = SubResource("StandardMaterial3D_nel64")
+size = Vector2(0.75, 1)
+
+[node name="world_table" type="Node3D"]
+
+[node name="ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_qxg50")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_d747o")
+
+[node name="Rod1Table" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = ExtResource("3_qwyvp")
+surface_material_override/0 = SubResource("StandardMaterial3D_t3x8x")
+surface_material_override/1 = SubResource("StandardMaterial3D_fn3xs")
+surface_material_override/2 = SubResource("StandardMaterial3D_tpd7e")
+surface_material_override/3 = SubResource("StandardMaterial3D_hmmoo")
+surface_material_override/4 = SubResource("StandardMaterial3D_qxdxm")
+surface_material_override/5 = SubResource("StandardMaterial3D_qfuvk")
+surface_material_override/6 = SubResource("StandardMaterial3D_1jygd")
+surface_material_override/7 = SubResource("StandardMaterial3D_evckq")
+surface_material_override/8 = SubResource("StandardMaterial3D_32y1t")
+surface_material_override/9 = SubResource("StandardMaterial3D_7deox")
+surface_material_override/10 = SubResource("StandardMaterial3D_olvfm")
+surface_material_override/11 = SubResource("StandardMaterial3D_wlotb")
+surface_material_override/12 = SubResource("StandardMaterial3D_2y05w")
+surface_material_override/13 = SubResource("StandardMaterial3D_0p80v")
+surface_material_override/14 = SubResource("StandardMaterial3D_w2hpc")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Rod1Table"]
+transform = Transform3D(0.306186, -0.918559, 0.25, 0.353553, 0.353553, 0.866025, -0.883883, -0.176777, 0.433013, 0.0958523, 1, 0.142714)
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+occluder = ExtResource("6_8oflx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0528107, 1.41992, -0.160839)
+mesh = SubResource("PlaneMesh_yrf38")

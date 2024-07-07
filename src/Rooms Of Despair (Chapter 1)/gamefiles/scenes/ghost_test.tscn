@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://buikvbe7n7j15"]
+
+[ext_resource type="Script" path="res://gamefiles/scripts/entity6_2b_script.gd" id="1_nik63"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t7fnx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysmc5"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_bcjsl"]
+material = SubResource("StandardMaterial3D_ysmc5")
+
+[sub_resource type="BoxMesh" id="BoxMesh_vp4hm"]
+size = Vector3(1, 0.1, 0.1)
+
+[node name="ghost_test" type="CharacterBody3D" groups=["ghost"]]
+script = ExtResource("1_nik63")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_t7fnx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_bcjsl")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+mesh = SubResource("BoxMesh_vp4hm")
+skeleton = NodePath("../..")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_height_offset = 0.1

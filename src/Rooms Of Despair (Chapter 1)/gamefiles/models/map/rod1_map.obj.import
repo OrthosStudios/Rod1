@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dlptpd7v81o3o"
+path="res://.godot/imported/rod1_map.obj-a21792fa19ea3d6894cf744e5d75e4ce.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rod1_map.obj-a21792fa19ea3d6894cf744e5d75e4ce.mesh"]
+
+source_file="res://gamefiles/models/map/rod1_map.obj"
+dest_files=["res://.godot/imported/rod1_map.obj-a21792fa19ea3d6894cf744e5d75e4ce.mesh", "res://.godot/imported/rod1_map.obj-a21792fa19ea3d6894cf744e5d75e4ce.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjxf8er1savap"]
+
+[ext_resource type="PackedScene" uid="uid://bpb0r7p1vteap" path="res://gamefiles/scenes/overworld_map.tscn" id="1_8102x"]
+[ext_resource type="Environment" uid="uid://cct182vjp553t" path="res://gamefiles/environment/world_1.tres" id="1_muqjg"]
+[ext_resource type="PackedScene" uid="uid://bblq4kvosjsoj" path="res://gamefiles/scenes/player.tscn" id="2_qterp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lb407"]
+size = Vector3(512, 0.1, 512)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ft0uv"]
+size = Vector3(11, 1.8, 22)
+
+[node name="world1" type="Node3D"]
+
+[node name="environment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="environment"]
+environment = ExtResource("1_muqjg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="environment"]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0)
+light_color = Color(0.0862745, 0.0862745, 0.0862745, 1)
+
+[node name="overworldMap" parent="." instance=ExtResource("1_8102x")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="player" parent="." instance=ExtResource("2_qterp")]
+transform = Transform3D(0.0352309, 0, 0.999379, 0, 1, 0, -0.999379, 0, 0.0352309, -11, 4, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+shape = SubResource("BoxShape3D_lb407")
+
+[node name="Area3D2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -135, 8176, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+shape = SubResource("BoxShape3D_ft0uv")
