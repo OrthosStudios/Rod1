@@ -18,7 +18,7 @@ extends CharacterBody3D
 @onready var deathRay = $head/deathRay
 var axisTypeStatus
 var axisType
-var maxTouchIgnore = 1024
+var maxTouchIgnore = 512
 @export var playerSpeed = 5.0
 var lerpSpeed = 10.0
 var direction = Vector3.ZERO

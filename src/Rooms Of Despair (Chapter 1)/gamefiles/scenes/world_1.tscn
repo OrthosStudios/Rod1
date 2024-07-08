@@ -23,6 +23,7 @@ light_color = Color(0.0862745, 0.0862745, 0.0862745, 1)
 
 [node name="overworldMap" parent="." instance=ExtResource("1_8102x")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = null
 
 [node name="player" parent="." instance=ExtResource("2_qterp")]
 transform = Transform3D(0.0352309, 0, 0.999379, 0, 1, 0, -0.999379, 0, 0.0352309, -11, 4, 0)

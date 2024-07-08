@@ -7,6 +7,7 @@ extends CharacterBody3D
 @export var moveSpeed = 2.5
 @export var player_path : NodePath
 var player 
+
 func _ready():
 	player = get_node(player_path)
 	anim.play("otherAnim")
@@ -22,6 +23,16 @@ func _physics_process(delta):
 func chase(target):
 	agent.set_target_position(target.global_position)
 
-
 func _on_navigation_agent_3d_target_reached():
-	get_tree().change_scene_to_file("res://gamefiles/scenes/death_scene.tscn")
+	get_tree().quit()
+
+
+"""
+BUG!!! This causes the game not to load the death scene... maybe...
+
+E 0:00:17:0791   entity6_2b_script.gd:17 @ _physics_process(): NavigationServer map query failed because it was made before first map synchronization.
+  <C++ Error>    Condition "map_update_id == 0" is true. Returning: Vector<Vector3>()
+  <C++ Source>   modules/navigation/nav_map.cpp:119 @ get_path()
+  <Stack Trace>  entity6_2b_script.gd:17 @ _physics_process()
+
+"""

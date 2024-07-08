@@ -1,7 +1,10 @@
 extends Node3D
 
-@onready var player = $player
+@export var player_path : NodePath
+var player
+
+func _ready():
+	player = get_node(player_path)
 
 func _physics_process(delta):
-	if player.velocity != 0:
-		get_tree().call_group("ghost", "chase", player)
+	get_tree().call_group("ghost", "chase", player)

@@ -730,14 +730,14 @@ _data = {
 "otherAnim": SubResource("Animation_pr34v")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_pc2b7"]
-size = Vector3(1, 2, 1)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m614s"]
+height = 3.0
 
 [node name="entity6-2b" type="CharacterBody3D" groups=["ghost"]]
 script = ExtResource("1_6qp12")
 
 [node name="Node" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -1, 0)
+transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, 0, -1, 0)
 
 [node name="body" type="Node3D" parent="Node"]
 
@@ -851,10 +851,9 @@ libraries = {
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("BoxShape3D_pc2b7")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50293, 0)
+shape = SubResource("CapsuleShape3D_m614s")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-target_desired_distance = 2.0
 
 [connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]

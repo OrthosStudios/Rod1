@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://bco385dbdyre6"]
+
+[ext_resource type="Script" path="res://gamefiles/scripts/death_scene.gd" id="1_2atos"]
+[ext_resource type="Texture2D" uid="uid://d4dvbcr2ppbgj" path="res://gamefiles/textures/jumpscare/d2.jpg" id="2_s7k8b"]
+[ext_resource type="AudioStream" uid="uid://v75vleqwbanu" path="res://gamefiles/sounds/scream.mp3" id="3_ffbkd"]
+
+[node name="death_scene" type="Node2D"]
+script = ExtResource("1_2atos")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1144.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+text = "YOU DIED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(822.5, 748)
+scale = Vector2(1.9372, 0.456635)
+texture = ExtResource("2_s7k8b")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ffbkd")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

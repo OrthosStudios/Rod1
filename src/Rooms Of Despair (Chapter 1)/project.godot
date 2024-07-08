@@ -17,6 +17,11 @@ boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://gamefiles/logos/orthosstudios_logo_rod1.png"
 config/icon="res://gamefiles/logos/rod1_logo.png"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [input]
 
 moveForward={
