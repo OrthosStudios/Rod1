@@ -1,0 +1,164 @@
+[gd_scene load_steps=18 format=3 uid="uid://clnbubxqwhur8"]
+
+[ext_resource type="Script" uid="uid://cw6ufl4303sl7" path="res://gamefiles/scripts/menu.gd" id="1_cv4dh"]
+[ext_resource type="Texture2D" uid="uid://bma72ptv5jus7" path="res://gamefiles/textures/ui/play/play white-01.png" id="3_76lxa"]
+[ext_resource type="AudioStream" uid="uid://dxypihtyakaqf" path="res://gamefiles/sounds/menu.mp3" id="3_moayi"]
+[ext_resource type="Texture2D" uid="uid://che5onklbosau" path="res://gamefiles/textures/ui/play/play red-01.png" id="4_cttav"]
+[ext_resource type="Texture2D" uid="uid://j6pjcdlkpcj" path="res://gamefiles/textures/ui/credits/credits white-01.png" id="5_p3xee"]
+[ext_resource type="Texture2D" uid="uid://wobs4lqja2y4" path="res://gamefiles/textures/ui/credits/credits red-01.png" id="6_txcd3"]
+[ext_resource type="Texture2D" uid="uid://lf082ohmta1y" path="res://gamefiles/textures/ui/quit/quit white-01.png" id="7_hglos"]
+[ext_resource type="Texture2D" uid="uid://lf1yvwd0cr7t" path="res://gamefiles/textures/ui/quit/quit red-01.png" id="8_x72w8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ll8f4"]
+texture = ExtResource("3_76lxa")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c6wya"]
+texture = ExtResource("4_cttav")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qh02s"]
+texture = ExtResource("4_cttav")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pcb7d"]
+texture = ExtResource("5_p3xee")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4t1f4"]
+texture = ExtResource("6_txcd3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bp588"]
+texture = ExtResource("6_txcd3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v1eax"]
+texture = ExtResource("7_hglos")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1sdnr"]
+texture = ExtResource("8_x72w8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6xcg4"]
+texture = ExtResource("8_x72w8")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cv4dh")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -417.5
+offset_right = 417.5
+offset_bottom = 132.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 96
+text = "Rooms Of Despair"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -151.0
+offset_top = 128.0
+offset_right = 152.0
+offset_bottom = 216.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "Chapter 1"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -45.0
+offset_right = 202.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "v1.1 (release)"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -232.0
+offset_top = -45.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Orthos Studios"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_moayi")
+volume_db = 4.0
+pitch_scale = 0.6
+autoplay = true
+
+[node name="playButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = 60.0
+offset_right = -72.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxTexture_ll8f4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_c6wya")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qh02s")
+
+[node name="creditsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 60.0
+offset_right = 64.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxTexture_pcb7d")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4t1f4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bp588")
+
+[node name="quitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 72.0
+offset_top = 60.0
+offset_right = 200.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxTexture_v1eax")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1sdnr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6xcg4")
+
+[connection signal="pressed" from="playButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="creditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="quitButton" to="." method="_on_quit_button_pressed"]

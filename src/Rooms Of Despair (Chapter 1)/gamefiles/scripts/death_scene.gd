@@ -7,4 +7,4 @@ func _ready():
 	audio.play()
 
 func _on_audio_stream_player_2d_finished():
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://gamefiles/scenes/menu.tscn")

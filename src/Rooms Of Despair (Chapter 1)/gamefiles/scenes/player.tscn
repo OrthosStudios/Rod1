@@ -1,13 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://bblq4kvosjsoj"]
+[gd_scene load_steps=9 format=3 uid="uid://bblq4kvosjsoj"]
 
-[ext_resource type="Script" path="res://gamefiles/scripts/fps_player.gd" id="1_bljgm"]
+[ext_resource type="Script" uid="uid://6ni2p1e18ecw" path="res://gamefiles/scripts/fps_player.gd" id="1_bljgm"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://gamefiles/extras/virtual_joystick/virtual_joystick_scene.tscn" id="2_51j4k"]
-[ext_resource type="Shader" path="res://gamefiles/shaders/glitch.gdshader" id="3_k3tlo"]
-[ext_resource type="Texture2D" uid="uid://dflbogeo4fuuk" path="res://icon.svg" id="4_nxdpd"]
+[ext_resource type="Shader" uid="uid://b1mpttevuw64g" path="res://gamefiles/shaders/glitch.gdshader" id="3_k3tlo"]
+[ext_resource type="Texture2D" uid="uid://cb8n6pcxidcrk" path="res://gamefiles/textures/objects/table_cutscene.jpg" id="4_pfkjq"]
+[ext_resource type="Texture2D" uid="uid://bpdinkfj6or2r" path="res://gamefiles/textures/ui/grab_icon.png" id="5_a0vy3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_24qhb"]
-radius = 1.0
-height = 4.0
+radius = 0.75
+height = 3.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1al84"]
 shader = ExtResource("3_k3tlo")
@@ -17,31 +18,34 @@ shader_parameter/shake_speed = 5.0
 shader_parameter/shake_block_size = 30.5
 shader_parameter/shake_color_rate = 0.01
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u5erp"]
+texture = ExtResource("5_a0vy3")
+
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("1_bljgm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("CapsuleShape3D_24qhb")
-
-[node name="torch" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.983751, 0.179541, 0, -0.179541, 0.983751, 1.34081, 2, 0)
-spot_range = 256.0
-spot_angle = 60.0
 
 [node name="head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
+[node name="torch" type="SpotLight3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+light_energy = 4.0
+spot_range = 16.0
+
 [node name="RayCast3D" type="RayCast3D" parent="head"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 3, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2, 0)
 target_position = Vector3(0, -2, 0)
 collide_with_areas = true
 collide_with_bodies = false
 
 [node name="Camera3D" type="Camera3D" parent="head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 near = 0.1
-far = 100.0
+far = 1024.0
 
 [node name="deathRay" type="RayCast3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.872206, 0)
@@ -65,25 +69,9 @@ wait_time = 2.0
 one_shot = true
 
 [node name="Virtual Joystick" parent="." instance=ExtResource("2_51j4k")]
-offset_top = -224.0
-offset_right = 219.0
+offset_top = -216.0
+offset_right = 216.0
 offset_bottom = -9.0
-
-[node name="glitchButton" type="TouchScreenButton" parent="."]
-visible = false
-position = Vector2(904, 432)
-texture_normal = ExtResource("4_nxdpd")
-
-[node name="cutscene" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(519.999, 332.001)
-scale = Vector2(9.12502, 6.18748)
-texture = ExtResource("4_nxdpd")
-
-[node name="grabButton" type="TouchScreenButton" parent="."]
-visible = false
-position = Vector2(904, 432)
-texture_normal = ExtResource("4_nxdpd")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -96,6 +84,36 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="grabButton" type="Button" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.5
+offset_top = -71.0
+offset_right = 74.5
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_u5erp")
+
+[node name="glitchButton" type="Button" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.5
+offset_top = -71.0
+offset_right = 74.5
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_u5erp")
+
 [node name="blackMask" type="ColorRect" parent="CanvasLayer"]
 visible = false
 anchors_preset = 15
@@ -105,6 +123,18 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="cutscene" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_pfkjq")
+expand_mode = 1
+
 [connection signal="timeout" from="Timers/noiseTimer1" to="." method="_on_noise_timer_1_timeout"]
 [connection signal="timeout" from="Timers/noiseTimer2" to="." method="_on_noise_timer_2_timeout"]
 [connection signal="timeout" from="Timers/noiseTimer3" to="." method="_on_noise_timer_3_timeout"]
+[connection signal="pressed" from="CanvasLayer/grabButton" to="." method="_on_grab_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/glitchButton" to="." method="_on_glitch_button_pressed"]

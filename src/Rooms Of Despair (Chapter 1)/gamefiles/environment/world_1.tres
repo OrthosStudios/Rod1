@@ -11,10 +11,13 @@ sun_angle_max = 45.0
 sky_material = SubResource("ProceduralSkyMaterial_lu5tv")
 
 [resource]
-background_mode = 2
+background_mode = 1
+background_color = Color(0.176471, 0.176471, 0.176471, 1)
+background_energy_multiplier = 1.38
 sky = SubResource("Sky_ggwt3")
+ambient_light_color = Color(0.176471, 0.176471, 0.176471, 1)
 tonemap_mode = 1
 fog_enabled = true
-fog_light_color = Color(0.0313726, 0.0313726, 0.0313726, 1)
+fog_light_color = Color(0.113725, 0.113725, 0.113725, 1)
 fog_light_energy = 2.0
-fog_density = 0.25
+fog_density = 0.1

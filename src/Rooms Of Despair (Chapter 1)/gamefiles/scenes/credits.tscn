@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0uxhtbw723kj"]
+
+[ext_resource type="Script" uid="uid://0p874swu68ke" path="res://gamefiles/scripts/credits.gd" id="1_8ymjc"]
+[ext_resource type="Texture2D" uid="uid://b3sfvllwmcmbt" path="res://gamefiles/textures/credits2.png" id="2_b8ujl"]
+[ext_resource type="Texture2D" uid="uid://h8kq5wiokwrn" path="res://gamefiles/textures/ui/back_button.png" id="3_672us"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_41xd6"]
+blend_mode = 3
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tj0mo"]
+texture = ExtResource("3_672us")
+
+[node name="credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ymjc")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("CanvasItemMaterial_41xd6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_b8ujl")
+
+[node name="backButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -78.0
+offset_top = -96.0
+offset_right = 78.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxTexture_tj0mo")
+
+[connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]
